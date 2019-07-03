@@ -8,6 +8,8 @@ import (
 	"github.com/unidoc/unioffice/spreadsheet"
 )
 
+const amountOfPeople = 2 * 1000
+
 func main() {
 	generateSheet()
 }
@@ -19,12 +21,12 @@ func generateSheet() {
 		NickName    string `header:"Nickname"`
 		Email       string `header:"Email"`
 		City        string `header:"City"`
-		Street      string `header:"-"`
-		PhoneNumber string // `header:"Phonenumber"`
+		Street      string `header:"Street"`
+		PhoneNumber string `header:"Phonenumber"`
 	}
 
-	peoples := make([]PersonData, 2000) // knowing the size makes it much faster
-	for i := 0; i < 2000; i++ {
+	peoples := make([]PersonData, amountOfPeople) // knowing the size makes it much faster
+	for i := 0; i < amountOfPeople; i++ {
 		person := PersonData{
 			FirstName:   randomdata.FirstName(randomdata.RandomGender),
 			LastName:    randomdata.LastName(),
